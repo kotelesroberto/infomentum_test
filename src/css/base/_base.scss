@@ -1,0 +1,51 @@
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+* {
+	font-family: $font-primary;
+}
+
+*, *:after, *:before {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+/**
+ *	Font sizes
+ */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+	font-family: $font-heading;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 0.02em;
+	margin-bottom: 24px;
+}
+
+h1, .h1 {
+	font-size: 42px;
+	font-weight: 700;	
+}
+
+h2, .h2 {
+	font-size: 36px;
+	font-weight: 500;	
+}
+
+h3, .h3 {
+}
+
+h4, .h4 {
+
+}
+
+p {
+	font-family: $font-primary;
+	font-size: 16PX;
+	line-height: 24px;
+	font-weight: normal;
+}

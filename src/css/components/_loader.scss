@@ -1,0 +1,72 @@
+/**
+ *  Samsung Loader
+ *
+ *  <div class="cm-loader cm-loader-type1">
+ *      <div class="cm-loader__spinner">
+ *           <div class="cm-loader__bounce cm-loader__bounce1"></div>
+ *           <div class="cm-loader__bounce cm-loader__bounce2"></div>
+ *           <div class="cm-loader__bounce cm-loader__bounce3"></div>
+ *           <div class="cm-loader__bounce cm-loader__bounce4"></div>
+ *       </div>
+ *   </div>
+ */
+.cm-loader {
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    transition: .4s opacity ease-in;
+    z-index: 9999;
+
+    &-type1 {
+        background-color: #000;
+    }
+
+    &-type2 {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &__spinner {
+        left: 50%;
+        margin: -15px 0 0 -65px;
+        position: absolute;
+        top: 50%;
+    }
+
+    &__bounce {
+        animation-fill-mode: both;
+        animation: bouncedelay 1.4s infinite ease-in-out;
+        background-color: #fff;
+        border-radius: 24px;
+        display: inline-block;
+        height: 24px;
+        margin: 0 2px;
+        width: 24px;
+
+        &1 {
+            animation-delay: -.48s;
+        }
+
+        &2 {
+            animation-delay: -.32s;
+        }
+
+        &3 {
+            animation-delay: -.16s;
+        }
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}

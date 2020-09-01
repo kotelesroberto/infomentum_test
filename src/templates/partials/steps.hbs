@@ -1,0 +1,30 @@
+{{!-- Template: Questions --}}
+
+<div id="steps" class="question--list">
+	
+	{{#each questions as |question|}}
+		
+		<div class="question--item">
+		
+			<h2 class="question--title">
+				<span>
+					{{question.id}}.
+				</span> 
+				{{question.question}}
+			</h2>
+			
+			<div class="question--answers">
+				
+				{{#each question.answers as |answer|}}
+					<div class="question--answer" data-score="{{answer.score}}" data-math="{{question.op}}">
+						{{answer.label}}
+					</div>
+				{{/each}}
+
+			</div>
+	
+		</div>
+
+	{{/each}}
+
+</div>

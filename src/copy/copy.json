@@ -1,0 +1,13 @@
+{
+	"webpage": {
+		"title": "Infomentum Test Questions",
+		"description": "Infomentum helps businesses maximise the power of API integration, information and robotic process automation (RPA).",
+		"title_social": "Infomentum | Integration, automation &amp; information to empower innovation",
+		"favicon": "./assets/favicon/favicon.png"
+	},
+	"welcome": "Welcome!",
+	"sub": "Thank you for joining us.",
+	"intro": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
+	"unsubscribe": "I'd like to opt out",
+	"start": "Let's get started"
+}

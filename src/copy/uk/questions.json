@@ -1,0 +1,127 @@
+[
+   {
+      "id":1,
+      "question":"How old are you?",
+      "op":"multiple",
+      "answers":[
+         {
+            "label":"18 – 24 years",
+            "score":1
+         },
+         {
+            "label":"25 – 30 years",
+            "score":0.9
+         },
+         {
+            "label":"30 + years",
+            "score":0.8
+         }
+      ]
+   },
+   {
+      "id":2,
+      "question":"How are you feeling today?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"Sad",
+            "score":-2
+         },
+         {
+            "label":"Neutral",
+            "score":0
+         },
+         {
+            "label":"Happy",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":3,
+      "question":"Do you have someone who you feel comfortable sharing your feelings with?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"Yes",
+            "score":3
+         },
+         {
+            "label":"No",
+            "score":0
+         }
+      ]
+   },
+   {
+      "id":4,
+      "question":"How many times this week would you say you felt stressed to the point of worry?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"0 times",
+            "score":3
+         },
+         {
+            "label":"1-2 times",
+            "score":0
+         },
+         {
+            "label":"3+ times",
+            "score":-2
+         }
+      ]
+   },
+   {
+      "id":5,
+      "question":"How many times this week have you exercised moderately for more than 20 minutes?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"0 times",
+            "score":0
+         },
+         {
+            "label":"1-2 times",
+            "score":1
+         },
+         {
+            "label":"3+ times",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":6,
+      "question":"How many hours do you sleep on average every day?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"< 6 hours",
+            "score":-1
+         },
+         {
+            "label":"6 – 8 hours",
+            "score":1
+         },
+         {
+            "label":"8 + times",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":7,
+      "question":"How many times each day do you stop to relax and breathe?",
+      "op":"add",
+      "answers":[
+         {
+            "label":"0 times",
+            "score":0
+         },
+         {
+            "label":"1 + times",
+            "score":2
+         }
+      ]
+   }
+]
