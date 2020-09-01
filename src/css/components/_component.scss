@@ -206,6 +206,8 @@
 	max-width: 1026px;
 
 	width: 100%;
+	// width: calc(100vw - 30px);
+
 	// min-height: 550px;
 	height: auto;
 	// max-height: 100%;
@@ -272,27 +274,32 @@
 		position: relative;
 		display: flex;
 		justify-content: space-between;
-    flex-direction: column-reverse;
+    flex-direction: row;
 		
 		@media screen and (min-width: $screen-tablet-portrait) {
 			padding: 60px 50px 37px 50px;
 			padding: 4.1666vw 3.4722vw 2.5694vw 3.4722vw;
-    	flex-direction: row;
 		}
 
     @media screen and (min-width: $screen-extralarge) {
 			padding: 60px 50px 37px 50px;
     }
 
-    .button {
-    	& + .button {
-    		margin-bottom: 23px;
+    &.mob-col {
+	    flex-direction: column-reverse;
+	
+			@media screen and (min-width: $screen-tablet-portrait) {
+	    	flex-direction: row;
+			}
 
-    		@media screen and (min-width: $screen-tablet-portrait) {
-    			margin-bottom: 0;
-    		}
-    	}
+	    @media screen and (min-width: $screen-extralarge) {
+				padding: 60px 50px 37px 50px;
+	    }
     }
+
+
+    &.mob-row {}
+
 
 	}
 }
@@ -312,19 +319,89 @@
 	}
 	
 	&-answers {
-		&.text {
 
+		&.text {
+			display: flex;
+	    flex-direction: column;
+	    justify-content: space-between;
+	    align-items: center;
+
+	    @media screen and (min-width: $screen-tablet-portrait) {
+	    	flex-direction: row;
+	    }
+			@media screen and (min-width: $screen-extralarge) {}
+
+			.question {
+				&-answer {
+					& + .question-answer {
+						margin-top: 20px;
+
+						@media screen and (min-width: $screen-tablet-portrait) {
+							margin-top: 0;
+						}
+					}
+		
+					&:hover {
+						background: rgba(82, 174, 50, 0.05);
+						border: 2px solid #52AE32;
+						color: #4BA21C;
+					}
+				}
+			}
 		}
+
 		&.icontext {
 
 		}
+
 		&.inline {
 
 		}
+		
 	}
 
 	&-answer {
+		padding: 27px;
+		background: $white;
+		border: 2px solid $light-grey;
+		border-radius: 6px;
+		
+		font-family: $font-button;
+		font-style: normal;
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 0.05em;
+		display: block;
+		text-transform: uppercase;
+		cursor: pointer;
+		letter-spacing: 0.05em;
 
+		width: 100%;
+		flex-basis: 100%;
+
+		@media screen and (min-width: $screen-tablet-portrait) {
+			width: auto;
+			flex-basis: initial;
+			margin: 0 15px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		@media screen and (min-width: $screen-extralarge) {}
+
+	}
+
+	&-label {
+		@include calculateFluidFontSize(32, 37, 0);
+	}
+
+	&-sublabel {
+		@include calculateFluidFontSize(16, 24, 0);
 	}
 
 	&-icon { // span

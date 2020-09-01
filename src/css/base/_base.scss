@@ -98,6 +98,7 @@ p {
 
 	@media screen and (min-width: $screen-extralarge) {
 		@include calculateFluidFontSize(16, 24, 0);
+		margin-bottom: 30px;
 	}
 }
 
@@ -135,6 +136,10 @@ input[type=text] {
 	position: relative;
 	width: 100%;
 	flex-basis: 100%;
+
+	& + .col {
+		margin-top: 30px;
+	}
 }
 
 
@@ -142,6 +147,12 @@ input[type=text] {
 
 	.row {
 		flex-direction: row;
+	}
+
+	.col {
+		& + .col {
+			margin-top: 0;
+		}
 	}
 
 	.col-2 {

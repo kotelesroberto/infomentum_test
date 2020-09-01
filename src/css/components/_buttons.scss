@@ -4,13 +4,12 @@
 	font-weight: bold;
 	@include calculateFluidFontSize(14, 46, 0);
 	// letter-spacing: 1.2;
+	letter-spacing: 0.05em;
 
 	// text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	letter-spacing: 0.05em;
 
 	cursor: pointer;
 	padding: 0 10px;
@@ -26,6 +25,37 @@
 		@include calculateFluidFontSize(14, 46, 1440);
 		padding: 0 20px;
 		padding: 0 1.3888vw;
+	}
+
+	@media screen and (min-width: $screen-extralarge) {
+		@include calculateFluidFontSize(14, 46, 0);
+		padding: 0 20px;
+	}
+
+	&:not(.tiny) {
+		& + .button {
+			margin-bottom: 23px;
+
+			@media screen and (min-width: $screen-tablet-portrait) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+	    
+
+	&.tiny {
+		padding: 0 30px;
+
+		@media screen and (min-width: $screen-tablet-portrait) {
+			padding: 0 30px;
+			padding: 0 2.08333vw;
+		}
+
+		@media screen and (min-width: $screen-extralarge) {
+			padding: 0 30px;
+		}
 	}
 
 	&:disabled {

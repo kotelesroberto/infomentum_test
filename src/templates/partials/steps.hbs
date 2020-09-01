@@ -13,35 +13,46 @@
 
 			{{!-- Content --}}
 			<div class="box-body">
-				
-				<h2 class="question-title" aria-label="{{question.question}}">
-					<span>
-						{{question.id}}.
-					</span> 
-					{{question.question}}
-				</h2>
-				
-				<div class="question-answers {{question.type}}">
-					
-					{{#each question.answers as |answer|}}
-						<div class="question-answer" data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
-							<span class="question-icon">{{answer.icon}}</span>
-							<span class="question-label">{{answer.label}}</span>
-							<span class="question-sublabel">{{answer.sublabel}}</span>
-						</div>
-					{{/each}}
 
+
+				<div class="row">
+					<div class="col col-8">
+							<h2 class="question-title" aria-label="{{question.question}}">
+							<span>
+									{{question.id}}.
+								</span> 
+								{{question.question}}
+							</h2>
+							
+							<div class="question-answers {{question.type}}">
+								
+								{{#each question.answers as |answer|}}
+									<div class="question-answer" data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
+										<span class="question-icon">{{answer.icon}}</span>
+										<span class="question-label">{{answer.label}}</span>
+										<span class="question-sublabel">{{answer.sublabel}}</span>
+									</div>
+								{{/each}}
+
+							</div>
+					</div>
+					<div class="col col-4">
+						<img class="box-body--img" src="{{question.image.desktop}}" data-desktop-src="{{question.image.desktop}}" data-mobile-src="{{question.image.mobile}}" alt="{{question.image.alt}}" />
+					</div>
 				</div>
+
+				
+				
 				
 			</div>
 			
 			{{!-- Button row --}}
 			<div class="box-footer">
-				<button class="round button">
+				<button class="button button--round button--grey tiny" id="previous-slide">
 					{{@root.translations.previous}}
 				</button>
 				
-				<button class="round button">
+				<button class="button button--round button--green tiny" id="next-slide">
 					{{@root.translations.next}}
 				</button>
 			</div>

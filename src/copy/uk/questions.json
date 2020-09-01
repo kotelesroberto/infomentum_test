@@ -3,17 +3,29 @@
       "id":1,
       "question":"How old are you?",
       "op":"multiple",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/Netflix.svg",     
+         "mobile": "assets/figures/Netflix.svg",      
+         "alt": "Netflix"  
+      },
       "answers":[
          {
-            "label":"18 – 24 years",
+            "icon":"",
+            "label":"18 - 24",
+            "sublabel":"years",
             "score":1
          },
          {
-            "label":"25 – 30 years",
+            "icon":"",
+            "label":"25 - 30",
+            "sublabel":"years",
             "score":0.9
          },
          {
-            "label":"30 + years",
+            "icon":"",
+            "label":"30 +",
+            "sublabel":"years",
             "score":0.8
          }
       ]
@@ -22,17 +34,29 @@
       "id":2,
       "question":"How are you feeling today?",
       "op":"add",
+      "type": "icontext",
+      "image": {
+         "desktop": "assets/figures/Flowers.svg",     
+         "mobile": "assets/figures/Flowers.svg",      
+         "alt": "Flowers"  
+      },
       "answers":[
          {
-            "label":"Sad",
+            "icon":"sad-face",
+            "label":"",
+            "sublabel":"Sad",
             "score":-2
          },
          {
-            "label":"Neutral",
+            "icon":"neutral-face",
+            "label":"",
+            "sublabel":"Neutral",
             "score":0
          },
          {
-            "label":"Happy",
+            "icon":"happy-face",
+            "label":"",
+            "sublabel":"Happy",
             "score":2
          }
       ]
@@ -41,13 +65,23 @@
       "id":3,
       "question":"Do you have someone who you feel comfortable sharing your feelings with?",
       "op":"add",
+      "type": "inline",
+      "image": {
+         "desktop": "assets/figures/Meetup.svg",     
+         "mobile": "assets/figures/Meetup.svg",      
+         "alt": "Meetup"  
+      },
       "answers":[
          {
+            "icon":"",
             "label":"Yes",
+            "sublabel":"",
             "score":3
          },
          {
+            "icon":"",
             "label":"No",
+            "sublabel":"",
             "score":0
          }
       ]
@@ -56,17 +90,29 @@
       "id":4,
       "question":"How many times this week would you say you felt stressed to the point of worry?",
       "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/LaptopGirl.svg",     
+         "mobile": "assets/figures/LaptopGirl.svg",      
+         "alt": "LaptopGirl"  
+      },
       "answers":[
          {
-            "label":"0 times",
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
             "score":3
          },
          {
-            "label":"1-2 times",
+            "icon":"",
+            "label":"1-2",
+            "sublabel":"times",
             "score":0
          },
          {
-            "label":"3+ times",
+            "icon":"",
+            "label":"3+",
+            "sublabel":"times",
             "score":-2
          }
       ]
@@ -75,17 +121,29 @@
       "id":5,
       "question":"How many times this week have you exercised moderately for more than 20 minutes?",
       "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/Yoga.svg",     
+         "mobile": "assets/figures/Yoga.svg",      
+         "alt": "Yoga"  
+      },
       "answers":[
          {
-            "label":"0 times",
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
             "score":0
          },
          {
-            "label":"1-2 times",
+            "icon":"",
+            "label":"1-2",
+            "sublabel":"times",
             "score":1
          },
          {
-            "label":"3+ times",
+            "icon":"",
+            "label":"3+",
+            "sublabel":"times",
             "score":2
          }
       ]
@@ -94,17 +152,29 @@
       "id":6,
       "question":"How many hours do you sleep on average every day?",
       "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/LaptopGirl.svg",     
+         "mobile": "assets/figures/LaptopGirl.svg",      
+         "alt": "LaptopGirl"  
+      },
       "answers":[
          {
-            "label":"< 6 hours",
+            "icon":"",
+            "label":"< 6",
+            "sublabel":"hours",
             "score":-1
          },
          {
-            "label":"6 – 8 hours",
+            "icon":"",
+            "label":"6 – 8",
+            "sublabel":"hours",
             "score":1
          },
          {
-            "label":"8 + times",
+            "icon":"",
+            "label":"8 +",
+            "sublabel":"hours",
             "score":2
          }
       ]
@@ -113,13 +183,23 @@
       "id":7,
       "question":"How many times each day do you stop to relax and breathe?",
       "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/Party.svg",     
+         "mobile": "assets/figures/Party.svg",      
+         "alt": "Party"  
+      },
       "answers":[
          {
-            "label":"0 times",
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
             "score":0
          },
          {
-            "label":"1 + times",
+            "icon":"",
+            "label":"1 +",
+            "sublabel":"times",
             "score":2
          }
       ]
