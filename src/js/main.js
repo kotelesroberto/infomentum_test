@@ -84,9 +84,107 @@ var INFOMENTUM_FORM = {
       var _self = this;
 
       log('XXX - startTheProject');
+      // _self.addtoDOM();
 
-      _self.buildTable();
-      _self.addtoDOM();
+      _self.initEvents();
+    },
+
+    initEvents: function( elm ) {
+
+        var _self = this;
+
+        switch (elm) {
+
+            case 'step1':
+                break; 
+
+            case 'landing':
+            default:
+
+                document.getElementById('unsubscribe').addEventListener("click", (event) => {
+                  log('unsubscribe');
+                  document.getElementById("survey").querySelectorAll(".popup-overlay").forEach(element => element.classList.add('active') );
+                  document.getElementById("survey").querySelectorAll(".popup").forEach(element => element.classList.add('active') );
+                });
+
+                document.getElementById('start-form').addEventListener("click", (event) => {
+                  log('start');
+                });
+
+                document.getElementById('email_unsubscribe').addEventListener('keyup', (event) => {
+                    
+                    let key = event.keyCode || event.which,
+                        inputField = document.getElementById('email_unsubscribe'),
+                        inputValue = event.target.value;
+
+                    // enter press
+                    if( key === 13) {
+                        log('enter pressed');
+                        if( _self.common.validateEmail(inputValue) ) {
+                            // valid email
+                            log('valid email');
+                            inputField.classList.remove('error');
+                            inputField.classList.add('valid');
+                            inputField.parentElement.classList.add('valid');
+
+                            // send form
+                            _self.submitUnsubscription(inputValue);
+                        } else {
+                            // invalid email
+                            log('invalid email');
+                            inputField.classList.add('error');
+                            inputField.classList.remove('valid');
+                            inputField.parentElement.classList.remove('valid');
+                        }
+                    } else {
+                        // non-enter key
+                        if( _self.common.validateEmail(inputValue) ) {
+                            // valid email
+                            log('valid email');
+                            inputField.classList.remove('error');
+                            inputField.classList.add('valid');
+                            inputField.parentElement.classList.add('valid');
+                        } else {
+                            // invalid email
+                            log('invalid email');
+                            // inputField.classList.add('error');
+                            inputField.classList.remove('valid');
+                            inputField.parentElement.classList.remove('valid');
+                        }
+
+                    }
+                });
+
+                document.getElementById('doUnsubscribe').addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    let inputValue = document.getElementById('email_unsubscribe').value;
+                    
+                    // send form
+                    INFOMENTUM_FORM.submitUnsubscription(inputValue);
+                });
+
+
+                document.getElementById('popup--close').addEventListener("click", function(){
+                    log('popup--close');
+                    // close popup by remove active class
+                    document.getElementById("survey").querySelectorAll(".popup-overlay.active").forEach(element => element.classList.remove('active') );
+                    document.getElementById("survey").querySelectorAll(".popup.active").forEach(element => element.classList.remove('active') );
+
+                    // reset input and all of belongings
+                    document.getElementById("survey").querySelectorAll(".popup-body .valid").forEach(element => element.classList.remove('valid') );
+                    document.getElementById("survey").querySelectorAll(".popup-body .error").forEach(element => element.classList.remove('error') );
+                    document.getElementById('email_unsubscribe').value = '';
+                });
+
+                break;
+        }
+
+    },
+
+
+    submitUnsubscription: function(email) {
+        log('unsubscribed: ' + email)
     },
 
 

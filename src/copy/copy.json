@@ -11,6 +11,7 @@
 			"content": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
 			"unsubscribe": "I'd like to opt out",
 			"start": "Let's get started",
+			"youremail": "Your email address ...",
 			"image": {
 				"desktop": "assets/figures/Scooter.svg",		
 				"mobile": "assets/figures/Scooter.svg",		
@@ -19,6 +20,7 @@
 	},
 	"previous": "back",
 	"next": "next",
+	"unsubscribe": "unsubscribe",
 	"images": {
 		"logo": {
 			"desktop": "assets/logo/infomentum.svg",		

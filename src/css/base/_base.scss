@@ -101,6 +101,31 @@ p {
 	}
 }
 
+input[type=text] {
+	width: 365px;
+	max-width: 100%;
+	padding: 14px;
+	border: 0;
+	border-bottom: 2px solid #A8A5A5;
+	outline: none;
+	position: relative;
+	
+	&::-webkit-input-placeholder { /* Edge */
+	  color: rgba($black, 0.3);
+	}
+
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	  color: rgba($black, 0.3);
+	}
+
+	&::placeholder {
+	  color: rgba($black, 0.3);
+	}
+
+}
+
+
+
 .row {
 	position: relative;
 	display: flex;
