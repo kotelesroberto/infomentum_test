@@ -1,17 +1,35 @@
-<div id="start">
+<div id="start" class="landing box">
+	
+	{{!-- Header with logo --}}
+	<div class="box-header">
+		<img class="box-header--img" src="{{@root.translations.images.logo.desktop}}" data-desktop-src="{{@root.translations.images.logo.desktop}}" data-mobile-src="{{@root.translations.images.logo.mobile}}" alt="{{@root.translations.images.logo.alt}}" />
+	</div>
 
-	<h2>{{translations.welcome}}</h2>
+	{{!-- Content --}}
+	<div class="box-body">
+		
+		<div class="row">
+			<div class="col col-54p">
+				<h2 class="bg-line-50-bottom">{{translations.landing.welcome}}</h2>
+				<h2>{{translations.landing.sub}}</h2>
+				<p>{{translations.landing.intro}}</p>
+			</div>
+			<div class="col col-46p">
+				<img class="box-body--img" src="{{@root.translations.landing.image.desktop}}" data-desktop-src="{{@root.translations.landing.image.desktop}}" data-mobile-src="{{@root.translations.landing.image.mobile}}" alt="{{@root.translations.landing.image.alt}}" />
+			</div>
+		</div>
 
-	<h2>{{translations.sub}}</h2>
-
-	<p>{{translations.intro}}</p>
-
-	<button class="round button">
-		{{translations.unsubscribe}}
-	</button>
-
-	<button class="round button">
-		{{translations.start}}
-	</button>
+	</div>
+	
+	{{!-- Button row --}}
+	<div class="box-footer">
+		<button class="button button--round button--grey">
+			{{translations.landing.unsubscribe}}
+		</button>
+		
+		<button class="button button--round  button--green">
+			{{translations.landing.start}}
+		</button>
+	</div>
 
 </div>

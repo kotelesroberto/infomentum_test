@@ -5,9 +5,26 @@
 		"title_social": "Infomentum | Integration, automation &amp; information to empower innovation",
 		"favicon": "./assets/favicon/favicon.png"
 	},
-	"welcome": "Welcome!",
-	"sub": "Thank you for joining us.",
-	"intro": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
-	"unsubscribe": "I'd like to opt out",
-	"start": "Let's get started"
+	"landing": {
+			"welcome": "Welcome!",
+			"sub": "Thank you for joining us.",
+			"intro": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
+			"unsubscribe": "I'd like to opt out",
+			"start": "Let's get started",
+			"image": {
+				"desktop": "assets/figures/Scooter.svg",		
+				"mobile": "assets/figures/Scooter.svg",		
+				"alt": "Welcome! Thank you for joining us."	
+			}
+	},
+	"previous": "back",
+	"next": "next",
+	"images": {
+		"logo": {
+			"desktop": "assets/logo/infomentum.svg",		
+			"mobile": "assets/logo/infomentum_mobile.svg",
+			"alt": "Infomentum"	
+		}
+	}
+	
 }

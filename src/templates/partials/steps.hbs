@@ -1,30 +1,58 @@
 {{!-- Template: Questions --}}
 
-<div id="steps" class="question--list">
+<div id="steps" class="question-list">
 	
 	{{#each questions as |question|}}
 		
-		<div class="question--item">
-		
-			<h2 class="question--title">
-				<span>
-					{{question.id}}.
-				</span> 
-				{{question.question}}
-			</h2>
-			
-			<div class="question--answers">
-				
-				{{#each question.answers as |answer|}}
-					<div class="question--answer" data-score="{{answer.score}}" data-math="{{question.op}}">
-						{{answer.label}}
-					</div>
-				{{/each}}
+		<div class="question-item box" data-step="{{question.id}}">
 
+			{{!-- Header with logo --}}
+			<div class="box-header">
+				<img class="box-header--img" src="{{@root.translations.images.logo.desktop}}" data-desktop-src="{{@root.translations.images.logo.desktop}}" data-mobile-src="{{@root.translations.images.logo.mobile}}" alt="{{@root.translations.images.logo.alt}}" />
 			</div>
+
+			{{!-- Content --}}
+			<div class="box-body">
+				
+				<h2 class="question-title" aria-label="{{question.question}}">
+					<span>
+						{{question.id}}.
+					</span> 
+					{{question.question}}
+				</h2>
+				
+				<div class="question-answers {{question.type}}">
+					
+					{{#each question.answers as |answer|}}
+						<div class="question-answer" data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
+							<span class="question-icon">{{answer.icon}}</span>
+							<span class="question-label">{{answer.label}}</span>
+							<span class="question-sublabel">{{answer.sublabel}}</span>
+						</div>
+					{{/each}}
+
+				</div>
+				
+			</div>
+			
+			{{!-- Button row --}}
+			<div class="box-footer">
+				<button class="round button">
+					{{@root.translations.previous}}
+				</button>
+				
+				<button class="round button">
+					{{@root.translations.next}}
+				</button>
+			</div>
+			
 	
 		</div>
 
 	{{/each}}
 
 </div>
+
+
+
+	

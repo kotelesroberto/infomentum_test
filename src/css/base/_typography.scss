@@ -7,14 +7,14 @@
  */
 @font-face {
   font-family: 'Museo-700';
-  src: url('../../../fonts/Museo-700.eot?#iefix') format('embedded-opentype'),  url('../../../fonts/Museo-700.woff') format('woff'), url('../../../fonts/Museo-700.ttf')  format('truetype'), url('../../../fonts/Museo-700.svg#Museo-700') format('svg');
+  src: url('../fonts/Museo-700.eot?#iefix') format('embedded-opentype'),  url('../fonts/Museo-700.woff') format('woff'), url('../fonts/Museo-700.ttf')  format('truetype'), url('../fonts/Museo-700.svg#Museo-700') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TrebuchetMS';
-  src: url('../../../fonts/TrebuchetMS.eot?#iefix') format('embedded-opentype'),  url('../../../fonts/TrebuchetMS.woff') format('woff'), url('../../../fonts/TrebuchetMS.ttf')  format('truetype'), url('../../../fonts/TrebuchetMS.svg#TrebuchetMS') format('svg');
+  src: url('../fonts/TrebuchetMS.eot?#iefix') format('embedded-opentype'),  url('../fonts/TrebuchetMS.woff') format('woff'), url('../fonts/TrebuchetMS.ttf')  format('truetype'), url('../fonts/TrebuchetMS.svg#TrebuchetMS') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,7 +22,7 @@
 
 @font-face {
   font-family: 'TrebuchetMS-Bold';
-  src: url('../../../fonts/TrebuchetMS-Bold.eot?#iefix') format('embedded-opentype'),  url('../../../fonts/TrebuchetMS-Bold.woff') format('woff'), url('../../../fonts/TrebuchetMS-Bold.ttf')  format('truetype'), url('../../../fonts/TrebuchetMS-Bold.svg#TrebuchetMS-Bold') format('svg');
+  src: url('../fonts/TrebuchetMS-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/TrebuchetMS-Bold.woff') format('woff'), url('../fonts/TrebuchetMS-Bold.ttf')  format('truetype'), url('../fonts/TrebuchetMS-Bold.svg#TrebuchetMS-Bold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,6 +33,7 @@
  */
 $font-heading: 'Museo-700', sans-serif;
 $font-steps: 'Museo-700', sans-serif;
+$font-button: 'TrebuchetMS-Bold', sans-serif;
 $font-button--back-next: 'TrebuchetMS-Bold', sans-serif;
 $font-button--yes-no: 'TrebuchetMS', sans-serif;
 
