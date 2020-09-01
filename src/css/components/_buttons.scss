@@ -2,25 +2,31 @@
 	font-family: $font-button;
 	font-style: normal;
 	font-weight: bold;
-	// font-size: 14px;
-	// line-height: 46px;
-	@include calculateFluidFontSize(14, 46, 1440);
+	@include calculateFluidFontSize(14, 46, 0);
 	// letter-spacing: 1.2;
 
+	// text-align: center;
 	display: flex;
 	align-items: center;
-	text-align: center;
+	justify-content: center;
+
 	letter-spacing: 0.05em;
 
 	cursor: pointer;
-	padding: 0 20px;
-	padding: 0 1.3888vw;
+	padding: 0 10px;
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
 	transition: all 300ms ease-in-out;
 	outline: none;
 	transform: scale(1);
+
+
+	@media screen and (min-width: $screen-tablet-portrait) {
+		@include calculateFluidFontSize(14, 46, 1440);
+		padding: 0 20px;
+		padding: 0 1.3888vw;
+	}
 
 	&:disabled {
 		background-color: $dark-grey;

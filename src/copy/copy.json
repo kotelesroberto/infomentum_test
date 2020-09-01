@@ -6,9 +6,9 @@
 		"favicon": "./assets/favicon/favicon.png"
 	},
 	"landing": {
-			"welcome": "Welcome!",
-			"sub": "Thank you for joining us.",
-			"intro": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
+			"title": "Welcome!",
+			"subtitle": "Thank you for joining us.",
+			"content": "We all know that mental wellness is equally important as physical well-being. Let's go through a couple a questions to find out how you have been doing recently.",
 			"unsubscribe": "I'd like to opt out",
 			"start": "Let's get started",
 			"image": {
@@ -24,6 +24,53 @@
 			"desktop": "assets/logo/infomentum.svg",		
 			"mobile": "assets/logo/infomentum_mobile.svg",
 			"alt": "Infomentum"	
+		}
+	},
+	"output": {
+		"areyouinterested": "Are you interested in hearing from us in the future?",
+		"no": "No, thanks",
+		"yes": "Yes please",
+		"results": [
+			{
+				"id": "less_5",
+				"image": {
+					"desktop": "assets/figures/output_1.jpg",		
+					"mobile": "assets/figures/output_1.jpg",		
+					"alt": "Well done!"	
+				},
+        "title": "Well done!",
+				"content": "<p>Based on your answers, below are a few tips that we think might be helpful to you.</p><ul><li>Talking to someone you trust </li><li>Trying to manage your worries</li><li>Look after your physical health</li><li>Try breathing excercises</li><li>Keep a diary to help you recognise and avoid stressors</li><li>Celebrate the positives</li></ul>"
+			},
+			{
+				"id": "between_5_10",
+				"image": {
+					"desktop": "assets/figures/output_2.jpg",		
+					"mobile": "assets/figures/output_2.jpg",		
+					"alt": "Well done!"	
+				},
+        "title": "Well done!",
+				"content": "<p>Based on your answers, we think you are doing pretty well. Carry on as you were!</p>"
+			},
+			{
+				"id": "10_plus",
+				"image": {
+					"desktop": "assets/figures/output_3.jpg",		
+					"mobile": "assets/figures/output_3.jpg",		
+					"alt": "Well done!"	
+				},
+        "title": "Well done!",
+				"content": "<p>Based on your answers, we think you are a Wellness Champion! Let’s celebrate your success together.</p>"
+			}
+		]
+	},
+	"final": {
+		"title": "See you!",
+		"subtitle": "",
+		"content": "<p>Thank you for your time. We hope to hear from you in the future. </p><p>Take care!</p>",
+		"image": {
+			"desktop": "assets/figures/hand.png",		
+			"mobile": "assets/figures/hand.png",		
+			"alt": "See you!"	
 		}
 	}
 	
