@@ -4,14 +4,14 @@
 	
 	{{!-- Header with logo --}}
 	<div class="box-header">
-		<img class="box-header--img" src="{{@root.translations.images.logo.desktop}}" data-desktop-src="{{@root.translations.images.logo.desktop}}" data-mobile-src="{{@root.translations.images.logo.mobile}}" alt="{{@root.translations.images.logo.alt}}" />
+		<img class="box-header--img" src="{{@root.translations.images.logo.desktop}}" data-desktop-src="{{@root.translations.images.logo.desktop}}" data-mobile-src="{{@root.translations.images.logo.mobile}}" alt="{{@root.translations.images.logo.alt}}" role="img"/>
 	</div>
 
 	{{!-- Content --}}
 	<div class="box-body">
 		
 		<div class="row">
-			<div class="col col-54p">
+			<div class="col col-54p v-middle">
 				<h2 class="bg-line-50-bottom">{{translations.landing.title}}</h2>
 				<h2>{{translations.landing.subtitle}}</h2>
 				<p>{{translations.landing.content}}</p>
@@ -24,14 +24,24 @@
 	</div>
 	
 	{{!-- Button row --}}
-	<div class="box-footer mob-col">
-		<button class="button button--round button--grey" id="unsubscribe">
-			{{translations.landing.unsubscribe}}
-		</button>
-		
-		<button class="button button--round  button--green" id="start-form">
-			{{translations.landing.start}}
-		</button>
+	<div class="box-footer">
+		<div class="box-footer-inner">
+
+			<div class="row">
+				<div class="col col-12 mob-dir-col">
+				
+					<button class="button button--round button--grey" id="unsubscribe" role="button">
+						{{translations.landing.unsubscribe}}
+					</button>
+					
+					<button class="button button--round  button--green" id="start-form" role="button">
+						{{translations.landing.start}}
+					</button>
+
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 </div>

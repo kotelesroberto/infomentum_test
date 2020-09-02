@@ -46,7 +46,16 @@
 	    
 
 	&.tiny {
-		padding: 0 30px;
+		padding: 0 15px;
+		line-height: 1.5;
+
+		@media screen and (min-width: $mobile-medium) {
+			line-height: 46px;
+		}
+		
+		@media screen and (min-width: $mobile-large) {
+			padding: 0 30px; 
+		}
 
 		@media screen and (min-width: $screen-tablet-portrait) {
 			padding: 0 30px;

@@ -1,0 +1,60 @@
+{{!-- Template: Score output--}}
+
+<div class="panel-item box" data-step="{{translations.output.results.2.id}}">
+
+	{{!-- Header with logo --}}
+	<div class="box-header">
+		<img class="box-header--img" src="{{@root.translations.images.logo.desktop}}" data-desktop-src="{{@root.translations.images.logo.desktop}}" data-mobile-src="{{@root.translations.images.logo.mobile}}" alt="{{@root.translations.images.logo.alt}}" role="img"/>
+	</div>
+
+	{{!-- Content --}}
+	<div class="box-body">
+
+
+		<div class="row">
+
+			<div class="col col-54p v-middle">
+				<h2 class="bg-line-50-bottom">{{translations.output.results.2.title}}</h2>
+				{{{translations.output.results.2.content}}}
+			</div>
+			<div class="col col-46p text-center">
+				<img class="box-body--img max-90p" src="{{translations.output.results.2.image.desktop}}" data-desktop-src="{{translations.output.results.2.image.desktop}}" data-mobile-src="{{translations.output.results.2.image.mobile}}" alt="{{translations.output.results.2.image.alt}}" />
+			</div>
+		</div>
+
+		
+	</div>
+	
+	{{!-- Button row --}}
+	<div class="box-footer">
+		<div class="box-footer-inner separator">
+			
+			{{!-- Filled or empty --}}
+			<div class="row">
+				<div class="col col-12 h-middle">
+					<p>{{translations.output.areyouinterested}}</p>			
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col col-12 h-middle">
+					<button class="button button--round button--grey tiny" id="hear-no" aria-label="{{translations.output.no}}">
+						{{translations.output.no}}
+					</button>
+					
+					<button class="button button--round button--green tiny" id="hear-yes" aria-label="{{translations.output.yes}}">
+						{{translations.output.yes}}
+					</button>
+				</div>
+			</div>
+			{{!-- // --}}
+
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+

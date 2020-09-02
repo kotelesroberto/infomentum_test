@@ -51,7 +51,7 @@
 					"alt": "Well done!"	
 				},
         "title": "Well done!",
-				"content": "<p>Based on your answers, we think you are doing pretty well. Carry on as you were!</p>"
+				"content": "<p>Based on your answers, we think you are doing pretty well.<br />Carry on as you were!</p>"
 			},
 			{
 				"id": "10_plus",
@@ -66,14 +66,14 @@
 		]
 	},
 	"final": {
-		"title": "See you!",
-		"subtitle": "",
-		"content": "<p>Thank you for your time. We hope to hear from you in the future. </p><p>Take care!</p>",
+		"id": "final",
 		"image": {
 			"desktop": "assets/figures/hand.png",		
 			"mobile": "assets/figures/hand.png",		
 			"alt": "See you!"	
-		}
+		},
+		"title": "See you!",
+		"content": "<p>Thank you for your time. We hope to hear from you in the future. </p><p>Take care!</p>"
 	}
 	
 }

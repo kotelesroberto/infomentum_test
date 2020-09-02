@@ -80,15 +80,25 @@ h4, .h4 {
 
 }
 
-p {
-	font-family: $font-primary;
-	// font-size: 16px;
-	// line-height: 24px;
+p,
+li {
+	// font-family: $font-primary;
+	// font-weight: normal;	
 	@include calculateFluidFontSize(14, 21, 0);
-	font-weight: normal;
+	color: $black;
+
+	@media screen and (min-width: $screen-tablet-portrait) {
+		@include calculateFluidFontSize(16, 24, 1440);
+	}
+
+	@media screen and (min-width: $screen-extralarge) {
+		@include calculateFluidFontSize(16, 24, 0);
+	}
+}
+
+p {
 	margin-top: 0;
 	margin-bottom: 30px;
-	color: $black;
 
 	@media screen and (min-width: $screen-tablet-portrait) {
 		margin-bottom: 30px;
@@ -102,7 +112,29 @@ p {
 	}
 }
 
-input[type=text] {
+ul, 
+ol {
+	list-style: none;
+	margin: 0;
+}
+
+li {
+	&:before { 
+		content: "";
+		border-color: transparent $emerald-green;
+		border-style: solid;
+		border-width: 0.3em 0 0.3em 0.4em;
+		display: block;
+		height: 0;
+		width: 0;
+		left: -1em;
+		top: 1em;
+		position: relative;
+	}
+}
+
+input[type=text],
+input[type=email] {
 	width: 365px;
 	max-width: 100%;
 	padding: 14px;
@@ -139,6 +171,18 @@ input[type=text] {
 
 	& + .col {
 		margin-top: 30px;
+	}
+
+	
+
+	&.v-middle {
+
+		@media screen and (min-width: $screen-tablet-portrait) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
 	}
 }
 
@@ -181,4 +225,9 @@ input[type=text] {
 		width: 46%;
 		flex-basis: 46%;
 	}
+}
+
+
+.text-center {
+	text-align: center;
 }

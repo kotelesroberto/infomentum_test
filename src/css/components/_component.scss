@@ -2,41 +2,35 @@
 // Style of form
 // ==========================================================================
 
+h2 {
+	&.bg-line-50-bottom {
 
+		position: relative;
+		z-index: 2;
+		display: inline-block;
+		margin-bottom: 0;
 
-.landing {
-	h2 {
-		&.bg-line-50-bottom {
+		@media screen and (min-width: $screen-tablet-portrait) {
+			margin-bottom: 10px;
+		}
 
-			position: relative;
-			z-index: 2;
-			display: inline-block;
-			margin-bottom: 0;
-
+		&:before {
 			@media screen and (min-width: $screen-tablet-portrait) {
-				margin-bottom: 10px;
-			}
-
-			&:before {
-				@media screen and (min-width: $screen-tablet-portrait) {
-					content: '';
-					display: block;
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					width: 100%;
-					height: 50%;
-					background-color: $yellow;
-					z-index: -1;
-				}
+				content: '';
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 50%;
+				background-color: $yellow;
+				z-index: -1;
 			}
 		}
 	}
-
-	p {
-
-	}
 }
+
+
 
 .popup	{
 	visibility: hidden;
@@ -279,36 +273,82 @@
 			width: 100%;
 			height: auto;
 			display: inline-block;
+
+			&.max-90p {
+				max-width: 90%;
+			}
 		}
 
 	}
 	&-footer {
 		padding: 20px;
 		position: relative;
-		display: flex;
-		justify-content: space-between;
-    flex-direction: row;
+
+		&-inner {
+			&.separator {
+				border-top: 1px solid $lighter-grey;
+
+
+			}
+		}
+
+    .row {
+
+    }
+    .col {
+			display: flex;
+			justify-content: space-between;
+	    flex-direction: row;
+			
+			
+			&.h-middle {
+
+				@media screen and (min-width: $screen-tablet-portrait) {
+					display: flex;
+					justify-content: center;	
+				}
+				
+				& > p {
+					margin: 20px 0;
+
+					@media screen and (min-width: $screen-tablet-portrait) {
+						margin: 1.3888vw 0;	
+					}
+
+					@media screen and (min-width: $screen-extralarge) {
+						margin: 20px;
+					}
+				}
+
+				& > button {
+					margin: 0 9px;
+				}
+			}
+
+	    &.mob-dir-col {
+		    flex-direction: column-reverse;
+		
+				@media screen and (min-width: $screen-tablet-portrait) {
+		    	flex-direction: row;
+				}
+
+		    @media screen and (min-width: $screen-extralarge) {
+					padding: 60px 50px 37px 50px;
+		    }
+	    }
+    }
 		
 		@media screen and (min-width: $screen-tablet-portrait) {
-			padding: 60px 50px 37px 50px;
-			padding: 4.1666vw 3.4722vw 2.5694vw 3.4722vw;
+			padding: 60px 70px 37px 70px;
+			padding: 4.1666vw 4.8611vw 2.5694vw 4.8611vw;
 		}
 
     @media screen and (min-width: $screen-extralarge) {
-			padding: 60px 50px 37px 50px;
+			padding: 60px 70px 37px 70px;
     }
 
-    &.mob-col {
-	    flex-direction: column-reverse;
-	
-			@media screen and (min-width: $screen-tablet-portrait) {
-	    	flex-direction: row;
-			}
 
-	    @media screen and (min-width: $screen-extralarge) {
-				padding: 60px 50px 37px 50px;
-	    }
-    }
+    
 
 
     &.mob-row {}
@@ -317,7 +357,7 @@
 	}
 }
 
-.question {
+.panel {
 	
 	&-list {
 
@@ -344,9 +384,9 @@
 	    }
 			@media screen and (min-width: $screen-extralarge) {}
 
-			.question {
+			.panel {
 				&-answer {
-					& + .question-answer {
+					& + .panel-answer {
 						margin-top: 20px;
 
 						@media screen and (min-width: $screen-tablet-portrait) {
@@ -368,9 +408,9 @@
 	    }
 			@media screen and (min-width: $screen-extralarge) {}
 
-			.question {
+			.panel {
 				&-answer {
-					& + .question-answer {
+					& + .panel-answer {
 						margin-top: 20px;
 
 						@media screen and (min-width: $screen-tablet-portrait) {
@@ -392,7 +432,7 @@
 	    }
 			@media screen and (min-width: $screen-extralarge) {}
 
-			.question {
+			.panel {
 				&-answer {
 					width: calc(100% / 2);
 					flex-basis: calc(100% / 2);
@@ -414,7 +454,7 @@
 					}
 
 
-					& + .question-answer {
+					& + .panel-answer {
 						margin-top: 20px;
 
 						@media screen and (min-width: $screen-tablet-portrait) {
@@ -446,6 +486,7 @@
 
 					&.no {
 						border-color: $dark-grey;
+						color: $dark-grey;
 
 						&:before,
 						&:after {
@@ -517,6 +558,7 @@
 			padding: 27px;
 		}
 		
+		&.selected,
 		&:hover {
 			background: rgba(82, 174, 50, 0.05);
 			border: 2px solid #52AE32;
