@@ -17,10 +17,11 @@ var INFOMENTUM_FORM = {
     // ==========================================================================
     compiled: '',
     questionData: [[QUESTIONDATA]],
+    resultsData: [[RESULTSDATA]],
     appData: {
         "panel": "landing",
         "question_step": 0,
-        "result": {
+        "results": {
             "age": 0,
             "answers": []
         }
@@ -34,7 +35,7 @@ var INFOMENTUM_FORM = {
       var _self = this;
 
       _self.common = new Common();
-      _self.templates = new Templates( _self.questionData );
+      _self.templates = new Templates( _self.questionData, _self.resultsData );
       
       _self.common.defineWindowLog();
       log('XXX - init');
@@ -58,7 +59,7 @@ var INFOMENTUM_FORM = {
     // ==========================================================================
     initEvents: function() {
         let _self = this;
-        log('XXX - initEvents');
+        log('XXX - initEvents: ' + _self.appData.panel);
 
         switch ( _self.appData.panel ) {
 
@@ -83,17 +84,45 @@ var INFOMENTUM_FORM = {
                       _self.loadTemplate('question')
                   } else if( _self.appData.question_step === _self.questionData.length - 1 ) {
                       log('let us show the result!');
+                      _self.loadTemplate('results');
                   }
                 });
 
                 // answers
                 document.getElementById("survey").querySelectorAll(".panel-answer").forEach(element => element.addEventListener("click", (event) => {
-                  log('item clicked');
+                  
+                  log(_self.appData);
+                  log('item clicked and score is: ' + event.target.getAttribute('data-score') );
+
+                  // remove selected state of previously selected items
+                  document.getElementById("survey").querySelectorAll(".panel-answer.selected").forEach(element => element.classList.remove('selected') );
+                  
+                  //add seleted status to this item
+                  event.target.classList.add('selected');
+
+                  // save answer
+                  if( !_self.appData.question_step  ) {
+                      _self.appData.results.age = event.target.getAttribute('data-score');
+                  } else {
+                      _self.appData.results.answers[ _self.appData.question_step -1 ] = event.target.getAttribute('data-score');
+                  }
                 }));
 
                 break; 
 
-            case 'result':
+            case 'results':
+                // no interested
+                document.getElementById('hear-no').addEventListener("click", (event) => {
+                  log('hear-no');
+                  _self.loadTemplate('final');
+                });
+
+                // interested
+                document.getElementById('hear-yes').addEventListener("click", (event) => {
+                  log('hear-yes');
+                  document.getElementById("survey").querySelectorAll(".popup-overlay").forEach(element => element.classList.add('active') );
+                  document.getElementById("survey").querySelectorAll(".popup").forEach(element => element.classList.add('active') );
+                });
                 break; 
 
             case 'final':
@@ -112,7 +141,6 @@ var INFOMENTUM_FORM = {
                 // start the survey button
                 document.getElementById('start-form').addEventListener("click", (event) => {
                   log('start');
-                  _self.appData.panel = 'question';
                   _self.loadTemplate('question')
                 });
 
@@ -159,7 +187,7 @@ var INFOMENTUM_FORM = {
 
                     }
                 });
-                
+
                 document.getElementById('doUnsubscribe').addEventListener("click", (event) => {
                     event.preventDefault();
 
@@ -197,7 +225,9 @@ var INFOMENTUM_FORM = {
             compiled = '',
             container = document.getElementById('populatedArea');
 
-        log('XXX - loadTemplate');
+        log('XXX - loadTemplate: ' + elm);
+
+        _self.appData.panel = elm;
 
         switch (elm) {
             case 'landing':
@@ -205,11 +235,10 @@ var INFOMENTUM_FORM = {
 
             case 'question':
                 compiled = _self.templates.buildTemplate__Question( _self.appData );
-                // console.log( _self.templates.buildTemplate__Question( _self.appData ) );
-
                 break; 
 
-            case 'result':
+            case 'results':
+                compiled = _self.templates.buildTemplate__Question( _self.appData );
                 break; 
 
             case 'final':
@@ -267,28 +296,6 @@ var INFOMENTUM_FORM = {
 // Final message
 // ==========================================================================
 
-    // 
-    // Managing the HTML markup
-    // ==========================================================================
-    buildTable: function() {
-
-        var _self = this;
-
-        _self.compiled = '<section id="spec-header" class="container">' +
-                            '<div class="container--inner">' +
-                                ' TEST ' +
-                            ' </div> ' +
-                         '</section>';
-
-    },
-
-    addtoDOM: function() {
-        var _self = this;
-
-        var populatedArea = document.getElementById('populatedArea');
-        populatedArea.innerHTML = _self.compiled;
-    }
-    
     
 
 }

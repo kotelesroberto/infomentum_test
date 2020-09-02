@@ -28,43 +28,6 @@
 			"alt": "Infomentum"	
 		}
 	},
-	"output": {
-		"areyouinterested": "Are you interested in hearing from us in the future?",
-		"no": "No, thanks",
-		"yes": "Yes please",
-		"results": [
-			{
-				"id": "less_5",
-				"image": {
-					"desktop": "assets/figures/output_1.jpg",		
-					"mobile": "assets/figures/output_1.jpg",		
-					"alt": "Well done!"	
-				},
-        "title": "Well done!",
-				"content": "<p>Based on your answers, below are a few tips that we think might be helpful to you.</p><ul><li>Talking to someone you trust </li><li>Trying to manage your worries</li><li>Look after your physical health</li><li>Try breathing excercises</li><li>Keep a diary to help you recognise and avoid stressors</li><li>Celebrate the positives</li></ul>"
-			},
-			{
-				"id": "between_5_10",
-				"image": {
-					"desktop": "assets/figures/output_2.jpg",		
-					"mobile": "assets/figures/output_2.jpg",		
-					"alt": "Well done!"	
-				},
-        "title": "Well done!",
-				"content": "<p>Based on your answers, we think you are doing pretty well.<br />Carry on as you were!</p>"
-			},
-			{
-				"id": "10_plus",
-				"image": {
-					"desktop": "assets/figures/output_3.jpg",		
-					"mobile": "assets/figures/output_3.jpg",		
-					"alt": "Well done!"	
-				},
-        "title": "Well done!",
-				"content": "<p>Based on your answers, we think you are a Wellness Champion! Let’s celebrate your success together.</p>"
-			}
-		]
-	},
 	"final": {
 		"id": "final",
 		"image": {
