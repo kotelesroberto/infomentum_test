@@ -175,6 +175,11 @@ h2 {
 	left: 15px;
 	top: 10px;
 	z-index: 100;
+	display: none;
+
+	&.active {
+		display: block;
+	}
 	
 	@media screen and (min-width: $screen-tablet-portrait) {
 		left: 37px;

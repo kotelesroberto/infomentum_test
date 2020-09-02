@@ -1,0 +1,77 @@
+{{!-- Template: Question panel --}}
+
+<div class="panel-item box" data-step="{{question.id}}">
+
+	{{!-- Header with logo --}}
+	<div class="box-header">
+		<img class="box-header--img" src="{{translations.images.logo.desktop}}" data-desktop-src="{{translations.images.logo.desktop}}" data-mobile-src="{{translations.images.logo.mobile}}" alt="{{translations.images.logo.alt}}" aria-label="{{translations.images.logo.alt}}" role="img"/>
+	</div>
+
+	{{!-- Content --}}
+	<div class="box-body">
+
+
+		<div class="row">
+			<div class="col col-8">
+					<h2 class="panel-title" aria-label="{{question.question}}">
+					<span>
+							{{question.id}}.
+						</span> 
+						{{question.question}}
+					</h2>
+					
+					<div class="panel-answers {{question.type}}">
+						
+						{{#each question.answers as |answer|}}
+							<div 
+							{{#if answer.class}}
+								class="panel-answer {{answer.class}}" 
+							{{else}}
+								class="panel-answer" 
+							{{/if}}
+							data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
+
+								{{#if answer.icon}}
+									<span class="panel-icon {{answer.icon}}"></span>
+								{{/if}}
+								<span class="panel-label">{{answer.label}}</span>
+								<span class="panel-sublabel">{{answer.sublabel}}</span>
+							</div>
+						{{/each}}
+
+					</div>
+			</div>
+			<div class="col col-4 text-center">
+				<img class="box-body--img" src="{{question.image.desktop}}" data-desktop-src="{{question.image.desktop}}" data-mobile-src="{{question.image.mobile}}" alt="{{question.image.alt}}" />
+			</div>
+		</div>
+
+		
+	</div>
+	
+	{{!-- Button row --}}
+	<div class="box-footer">
+		<div class="box-footer-inner">
+
+			<div class="row">
+				<div class="col col-12">
+					
+					<button class="button button--round button--grey tiny" id="previous-slide" aria-label="{{translations.previous}}">
+						{{translations.previous}}
+					</button>
+					
+					<button class="button button--round button--green tiny" id="next-slide" aria-label="{{translations.next}}">
+						{{translations.next}}
+					</button>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+
+</div>
+
+
+

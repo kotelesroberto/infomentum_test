@@ -7,57 +7,22 @@
 // Scripts, helper widgets
 // ==========================================================================
 import Common from "../js/components/common.js";
+import Templates from "../js/components/templates.js";
 
 
 var INFOMENTUM_FORM = {
 
-    // ==========================================================================
+    // 
     // Defining variables
     // ==========================================================================
     compiled: '',
     questionData: [[QUESTIONDATA]],
-
-    // ==========================================================================
-    // Overdefine window log function
-    // ==========================================================================
-    defineWindowLog: function() {
-
-        var _self = this;
-
-        window.log = function (...options) {
-            var name = 'Infomentum';
-
-            if ( _self.getParam('debug') === 'true' ) {
-                window.log.history = log.history || [];
-                window.log.history.push(options);
-
-                options.unshift( '%c' + name, 'color: green; font-weight: bold; text-decoration: underline; text-decoration-style: dotted;' );
-
-                if (window.console) {
-                    console.log.apply(console, options);
-                }
-        
-            }
-        }
-    },
-    
-    // ==========================================================================
-    // Get parameters from URL
-    // ==========================================================================
-    getParam: function(param) {
-        var pageURL = window.location.search.substring(1);
-        var URLVariables = pageURL.split('&');
-
-        // log('Query string values:');
-
-        for(var i = 0; i < URLVariables.length; i++) {
-            var queryString = URLVariables[i].split('=');
-
-            // log('Key: ' + queryString[0] + ', Value:  ' + queryString[1]);
-
-            if (queryString[0] == param) {
-                return queryString[1];
-            }
+    appData: {
+        "panel": "landing",
+        "question_step": 0,
+        "result": {
+            "age": 0,
+            "answers": []
         }
     },
 
@@ -66,53 +31,93 @@ var INFOMENTUM_FORM = {
     // Init
     // ==========================================================================
     init: function() {
-
-      this.defineWindowLog();
-      log('XXX - init');
-
       var _self = this;
 
       _self.common = new Common();
-      _self.startTheProject();
+      _self.templates = new Templates( _self.questionData );
+      
+      _self.common.defineWindowLog();
+      log('XXX - init');
+
+      _self.initLanding();
     },
 
+    // 
+    // Very first page that is Landing page
     // ==========================================================================
-    // YOUR FUNCTIONS
-    // ==========================================================================
-
-    startTheProject: function() {
+    initLanding: function() {
       var _self = this;
-
       log('XXX - startTheProject');
-      // _self.addtoDOM();
 
       _self.initEvents();
     },
 
-    initEvents: function( elm ) {
 
-        var _self = this;
+    //
+    // Initialise events for each screens
+    // ==========================================================================
+    initEvents: function() {
+        let _self = this;
+        log('XXX - initEvents');
 
-        switch (elm) {
+        switch ( _self.appData.panel ) {
 
-            case 'step1':
+            case 'question':
+                
+                // previous button
+                document.getElementById("previous-slide").addEventListener("click", (event) => {
+                  log('go to previous slide');
+                  if( _self.appData.question_step > 0) {
+                      _self.appData.question_step--;
+                      _self.loadTemplate('question')
+                  }
+                });
+
+                // next button
+                document.getElementById("next-slide").addEventListener("click", (event) => {
+                  log('go to next slide');
+                  
+                  console.log( _self.appData.question_step + " ___ " + (_self.questionData.length - 1) );
+                  if( _self.appData.question_step < _self.questionData.length - 1 ) {
+                      _self.appData.question_step++;
+                      _self.loadTemplate('question')
+                  } else if( _self.appData.question_step === _self.questionData.length - 1 ) {
+                      log('let us show the result!');
+                  }
+                });
+
+                // answers
+                document.getElementById("survey").querySelectorAll(".panel-answer").forEach(element => element.addEventListener("click", (event) => {
+                  log('item clicked');
+                }));
+
+                break; 
+
+            case 'result':
+                break; 
+
+            case 'final':
                 break; 
 
             case 'landing':
             default:
 
+                // unsubscribe trigger
                 document.getElementById('unsubscribe').addEventListener("click", (event) => {
                   log('unsubscribe');
                   document.getElementById("survey").querySelectorAll(".popup-overlay").forEach(element => element.classList.add('active') );
                   document.getElementById("survey").querySelectorAll(".popup").forEach(element => element.classList.add('active') );
                 });
 
+                // start the survey button
                 document.getElementById('start-form').addEventListener("click", (event) => {
                   log('start');
+                  _self.appData.panel = 'question';
+                  _self.loadTemplate('question')
                 });
 
+                // elements in the popup modal
                 document.getElementById('email_unsubscribe').addEventListener('keyup', (event) => {
-                    
                     let key = event.keyCode || event.which,
                         inputField = document.getElementById('email_unsubscribe'),
                         inputValue = event.target.value;
@@ -154,7 +159,7 @@ var INFOMENTUM_FORM = {
 
                     }
                 });
-
+                
                 document.getElementById('doUnsubscribe').addEventListener("click", (event) => {
                     event.preventDefault();
 
@@ -164,14 +169,13 @@ var INFOMENTUM_FORM = {
                     INFOMENTUM_FORM.submitUnsubscription(inputValue);
                 });
 
-
                 document.getElementById('popup--close').addEventListener("click", function(){
                     log('popup--close');
                     // close popup by remove active class
                     document.getElementById("survey").querySelectorAll(".popup-overlay.active").forEach(element => element.classList.remove('active') );
                     document.getElementById("survey").querySelectorAll(".popup.active").forEach(element => element.classList.remove('active') );
 
-                    // reset input and all of belongings
+                    // reset input and all of belonging elements
                     document.getElementById("survey").querySelectorAll(".popup-body .valid").forEach(element => element.classList.remove('valid') );
                     document.getElementById("survey").querySelectorAll(".popup-body .error").forEach(element => element.classList.remove('error') );
                     document.getElementById('email_unsubscribe').value = '';
@@ -183,12 +187,87 @@ var INFOMENTUM_FORM = {
     },
 
 
-    submitUnsubscription: function(email) {
-        log('unsubscribed: ' + email)
+
+    //
+    // Build template by JavaScript.
+    // @elm: string, name of panel to show 
+    // ==========================================================================
+    loadTemplate: function( elm ) {
+        let _self = this,
+            compiled = '',
+            container = document.getElementById('populatedArea');
+
+        log('XXX - loadTemplate');
+
+        switch (elm) {
+            case 'landing':
+                break; 
+
+            case 'question':
+                compiled = _self.templates.buildTemplate__Question( _self.appData );
+                // console.log( _self.templates.buildTemplate__Question( _self.appData ) );
+
+                break; 
+
+            case 'result':
+                break; 
+
+            case 'final':
+                break; 
+
+        }
+        
+        container.innerHTML = compiled;
+        _self.initEvents();
+        _self.setCounter();
+
     },
 
 
-    // ==========================================================================
+    setCounter: function() {
+        var _self = this;
+        log('XXX - setCounter');
+
+        let counter = document.getElementById('step-counter');
+        let stepCurrent = document.getElementById('step-counter--current');
+        let stepTotal = document.getElementById('step-counter--total');
+
+        if( _self.appData.panel === 'question' ) {
+            stepCurrent.innerHTML = _self.appData.question_step + 1;
+            stepTotal.innerHTML = _self.questionData.length;
+            counter.classList.add('active');
+        } else {
+            counter.classList.remove('active');
+        }
+    },
+
+// ==========================================================================
+// Landing page
+// ==========================================================================
+    
+    //
+    // Handle unsubscription request
+    // --------------------------------------------------------------------------
+    submitUnsubscription: function(email) {
+        log('unsubscribed: ' + email);
+        alert('Unsubscription is done! TODO: call a service that removes email from database');
+    },
+
+// ==========================================================================
+// Questions
+// ==========================================================================
+
+
+// ==========================================================================
+// Resolution
+// ==========================================================================
+
+
+// ==========================================================================
+// Final message
+// ==========================================================================
+
+    // 
     // Managing the HTML markup
     // ==========================================================================
     buildTable: function() {

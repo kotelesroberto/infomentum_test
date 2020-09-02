@@ -29,5 +29,181 @@
             "score":0.8
          }
       ]
+   },
+   {
+      "id":2,
+      "question":"How are you feeling today?",
+      "op":"add",
+      "type": "icontext",
+      "image": {
+         "desktop": "assets/figures/flowers.svg",     
+         "mobile": "assets/figures/flowers.svg",      
+         "alt": "Flowers"  
+      },
+      "answers":[
+         {
+            "icon":"sad-face",
+            "label":"",
+            "sublabel":"Sad",
+            "score":-2
+         },
+         {
+            "icon":"neutral-face",
+            "label":"",
+            "sublabel":"Neutral",
+            "score":0
+         },
+         {
+            "icon":"happy-face",
+            "label":"",
+            "sublabel":"Happy",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":3,
+      "question":"Do you have someone who you feel comfortable sharing your feelings with?",
+      "op":"add",
+      "type": "inline",
+      "image": {
+         "desktop": "assets/figures/meetup.svg",     
+         "mobile": "assets/figures/meetup.svg",      
+         "alt": "Meetup"  
+      },
+      "answers":[
+         {
+            "icon":"",
+            "label":"Yes",
+            "sublabel":"",
+            "score":3,
+            "class": "yes"
+         },
+         {
+            "icon":"",
+            "label":"No",
+            "sublabel":"",
+            "score":0,
+            "class": "no"
+         }
+      ]
+   },
+   {
+      "id":4,
+      "question":"How many times this week would you say you felt stressed to the point of worry?",
+      "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/laptopgirl.svg",     
+         "mobile": "assets/figures/laptopgirl.svg",      
+         "alt": "LaptopGirl"  
+      },
+      "answers":[
+         {
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
+            "score":3
+         },
+         {
+            "icon":"",
+            "label":"1-2",
+            "sublabel":"times",
+            "score":0
+         },
+         {
+            "icon":"",
+            "label":"3+",
+            "sublabel":"times",
+            "score":-2
+         }
+      ]
+   },
+   {
+      "id":5,
+      "question":"How many times this week have you exercised moderately for more than 20 minutes?",
+      "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/yoga.svg",     
+         "mobile": "assets/figures/yoga.svg",      
+         "alt": "Yoga"  
+      },
+      "answers":[
+         {
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
+            "score":0
+         },
+         {
+            "icon":"",
+            "label":"1-2",
+            "sublabel":"times",
+            "score":1
+         },
+         {
+            "icon":"",
+            "label":"3+",
+            "sublabel":"times",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":6,
+      "question":"How many hours do you sleep on average every day?",
+      "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/laptopgirl.svg",     
+         "mobile": "assets/figures/laptopgirl.svg",      
+         "alt": "LaptopGirl"  
+      },
+      "answers":[
+         {
+            "icon":"",
+            "label":"<6",
+            "sublabel":"hours",
+            "score":-1
+         },
+         {
+            "icon":"",
+            "label":"6-8",
+            "sublabel":"hours",
+            "score":1
+         },
+         {
+            "icon":"",
+            "label":"8+",
+            "sublabel":"hours",
+            "score":2
+         }
+      ]
+   },
+   {
+      "id":7,
+      "question":"How many times each day do you stop to relax and breathe?",
+      "op":"add",
+      "type": "text",
+      "image": {
+         "desktop": "assets/figures/party.svg",     
+         "mobile": "assets/figures/party.svg",      
+         "alt": "Party"  
+      },
+      "answers":[
+         {
+            "icon":"",
+            "label":"0",
+            "sublabel":"times",
+            "score":0
+         },
+         {
+            "icon":"",
+            "label":"1 +",
+            "sublabel":"times",
+            "score":2
+         }
+      ]
    }
 ]

@@ -11,13 +11,57 @@ export default class Common {
     }
 
     init( config ) {
-      log('Common init');
       var _this = this;
       _this.config = config;
     }
     
 
+    // 
+    // Overdefine window log function
     // ==========================================================================
+    defineWindowLog() {
+
+        var _self = this;
+
+        window.log = function (...options) {
+            var name = 'Infomentum';
+
+            if ( _self.getParam('debug') === 'true' ) {
+                window.log.history = log.history || [];
+                window.log.history.push(options);
+
+                options.unshift( '%c' + name, 'color: green; font-weight: bold; text-decoration: underline; text-decoration-style: dotted;' );
+
+                if (window.console) {
+                    console.log.apply(console, options);
+                }
+        
+            }
+        }
+    }
+    
+    // 
+    // Get parameters from URL
+    // ==========================================================================
+    getParam(param) {
+        var pageURL = window.location.search.substring(1);
+        var URLVariables = pageURL.split('&');
+
+        // log('Query string values:');
+
+        for(var i = 0; i < URLVariables.length; i++) {
+            var queryString = URLVariables[i].split('=');
+
+            // log('Key: ' + queryString[0] + ', Value:  ' + queryString[1]);
+
+            if (queryString[0] == param) {
+                return queryString[1];
+            }
+        }
+    }
+
+
+    // 
     // Resize window
     // ==========================================================================
     resizeWindow() {
@@ -28,7 +72,7 @@ export default class Common {
       }, 100);
     }
 
-    // ==========================================================================
+    // 
     // Timestamp
     // ==========================================================================
     getCB() {
@@ -53,7 +97,12 @@ export default class Common {
       return cb;
     }
 
-    // ==========================================================================
+
+// ==========================================================================
+// Email magic
+// ==========================================================================
+
+    // 
     // Validate email
     // ==========================================================================
 
@@ -63,20 +112,20 @@ export default class Common {
     }
 
 
-    // ==========================================================================
-    // General Script loader
-    // How to use:
-    
-    // var l = new Loader();
-    // l.require(
-    //     [
-    //     "url_1", 
-    //     "url_2"
-    //     ], 
-    // function() {
-    //     log('All Scripts Loaded');
-    // });
-    // ==========================================================================
+// ==========================================================================
+// General Script loader
+// How to use:
+
+// var l = new Loader();
+// l.require(
+//     [
+//     "url_1", 
+//     "url_2"
+//     ], 
+// function() {
+//     log('All Scripts Loaded');
+// });
+// ==========================================================================
     defineLoader() {
       var Loader = function(){}
       Loader.prototype = {
@@ -109,9 +158,9 @@ export default class Common {
     }
 
 
-    // ==========================================================================
-    // Cookie handlers
-    // ==========================================================================
+// ==========================================================================
+// Cookie handlers
+// ==========================================================================
     setCookie(name, value) {
       log('XXX - setCookie: ' + name);
       document.cookie = name+"="+value;
