@@ -27,8 +27,17 @@
 							<div class="question-answers {{question.type}}">
 								
 								{{#each question.answers as |answer|}}
-									<div class="question-answer" data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
-										<span class="question-icon">{{answer.icon}}</span>
+									<div 
+									{{#if answer.class}}
+										class="question-answer {{answer.class}}" 
+									{{else}}
+										class="question-answer" 
+									{{/if}}
+									data-score="{{answer.score}}" data-math="{{question.op}}" aria-label="{{answer.label}}">
+
+										{{#if answer.icon}}
+											<span class="question-icon {{answer.icon}}"></span>
+										{{/if}}
 										<span class="question-label">{{answer.label}}</span>
 										<span class="question-sublabel">{{answer.sublabel}}</span>
 									</div>
@@ -41,8 +50,6 @@
 					</div>
 				</div>
 
-				
-				
 				
 			</div>
 			

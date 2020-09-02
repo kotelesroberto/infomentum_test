@@ -5,26 +5,26 @@
       "op":"multiple",
       "type": "text",
       "image": {
-         "desktop": "assets/figures/Netflix.svg",     
-         "mobile": "assets/figures/Netflix.svg",      
+         "desktop": "assets/figures/netflix.svg",     
+         "mobile": "assets/figures/netflix.svg",      
          "alt": "Netflix"  
       },
       "answers":[
          {
             "icon":"",
-            "label":"18 - 24",
+            "label":"18-24",
             "sublabel":"years",
             "score":1
          },
          {
             "icon":"",
-            "label":"25 - 30",
+            "label":"25-30",
             "sublabel":"years",
             "score":0.9
          },
          {
             "icon":"",
-            "label":"30 +",
+            "label":"30+",
             "sublabel":"years",
             "score":0.8
          }
@@ -36,8 +36,8 @@
       "op":"add",
       "type": "icontext",
       "image": {
-         "desktop": "assets/figures/Flowers.svg",     
-         "mobile": "assets/figures/Flowers.svg",      
+         "desktop": "assets/figures/flowers.svg",     
+         "mobile": "assets/figures/flowers.svg",      
          "alt": "Flowers"  
       },
       "answers":[
@@ -67,8 +67,8 @@
       "op":"add",
       "type": "inline",
       "image": {
-         "desktop": "assets/figures/Meetup.svg",     
-         "mobile": "assets/figures/Meetup.svg",      
+         "desktop": "assets/figures/meetup.svg",     
+         "mobile": "assets/figures/meetup.svg",      
          "alt": "Meetup"  
       },
       "answers":[
@@ -76,13 +76,15 @@
             "icon":"",
             "label":"Yes",
             "sublabel":"",
-            "score":3
+            "score":3,
+            "class": "yes"
          },
          {
             "icon":"",
             "label":"No",
             "sublabel":"",
-            "score":0
+            "score":0,
+            "class": "no"
          }
       ]
    },
@@ -92,8 +94,8 @@
       "op":"add",
       "type": "text",
       "image": {
-         "desktop": "assets/figures/LaptopGirl.svg",     
-         "mobile": "assets/figures/LaptopGirl.svg",      
+         "desktop": "assets/figures/laptopgirl.svg",     
+         "mobile": "assets/figures/laptopgirl.svg",      
          "alt": "LaptopGirl"  
       },
       "answers":[
@@ -123,8 +125,8 @@
       "op":"add",
       "type": "text",
       "image": {
-         "desktop": "assets/figures/Yoga.svg",     
-         "mobile": "assets/figures/Yoga.svg",      
+         "desktop": "assets/figures/yoga.svg",     
+         "mobile": "assets/figures/yoga.svg",      
          "alt": "Yoga"  
       },
       "answers":[
@@ -154,26 +156,26 @@
       "op":"add",
       "type": "text",
       "image": {
-         "desktop": "assets/figures/LaptopGirl.svg",     
-         "mobile": "assets/figures/LaptopGirl.svg",      
+         "desktop": "assets/figures/laptopgirl.svg",     
+         "mobile": "assets/figures/laptopgirl.svg",      
          "alt": "LaptopGirl"  
       },
       "answers":[
          {
             "icon":"",
-            "label":"< 6",
+            "label":"<6",
             "sublabel":"hours",
             "score":-1
          },
          {
             "icon":"",
-            "label":"6 – 8",
+            "label":"6-8",
             "sublabel":"hours",
             "score":1
          },
          {
             "icon":"",
-            "label":"8 +",
+            "label":"8+",
             "sublabel":"hours",
             "score":2
          }
@@ -185,8 +187,8 @@
       "op":"add",
       "type": "text",
       "image": {
-         "desktop": "assets/figures/Party.svg",     
-         "mobile": "assets/figures/Party.svg",      
+         "desktop": "assets/figures/party.svg",     
+         "mobile": "assets/figures/party.svg",      
          "alt": "Party"  
       },
       "answers":[

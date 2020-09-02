@@ -178,23 +178,36 @@
 
 .counter {
 	position: absolute;
-	left: 37px;
-	top: 27px;
+	left: 15px;
+	top: 10px;
+	z-index: 100;
+	
+	@media screen and (min-width: $screen-tablet-portrait) {
+		left: 37px;
+		top: 27px;
+	}
+	@media screen and (min-width: $screen-extralarge) {}
 
 	&-inner {
 		span {
 			display: inline-block;
 			font-family: $font-steps;
-			// font-size: 36px;
-			@include calculateFluidFontSize(36, 43, 1440);
+			@include calculateFluidFontSize(28, 34, 0);
 			line-height: 1.2;
 			letter-spacing: 0.05em;
 			color: $white;
 			opacity: 0.59;
 			color: rgba($white, 0.59);
 
+			@media screen and (min-width: $screen-tablet-portrait) {
+				@include calculateFluidFontSize(36, 43, 1440);
+			}
+			@media screen and (min-width: $screen-extralarge) {
+				@include calculateFluidFontSize(36, 43, 0);
+			}
+
 			& + span {
-				margin-left: 5px;
+				margin-left: -2px;
 			}
 		}
 	}
@@ -323,7 +336,7 @@
 		&.text {
 			display: flex;
 	    flex-direction: column;
-	    justify-content: space-between;
+	    justify-content: flex-start;
 	    align-items: center;
 
 	    @media screen and (min-width: $screen-tablet-portrait) {
@@ -340,28 +353,131 @@
 							margin-top: 0;
 						}
 					}
-		
-					&:hover {
-						background: rgba(82, 174, 50, 0.05);
-						border: 2px solid #52AE32;
-						color: #4BA21C;
-					}
 				}
 			}
 		}
 
 		&.icontext {
+			display: flex;
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    align-items: center;
 
+	    @media screen and (min-width: $screen-tablet-portrait) {
+	    	flex-direction: row;
+	    }
+			@media screen and (min-width: $screen-extralarge) {}
+
+			.question {
+				&-answer {
+					& + .question-answer {
+						margin-top: 20px;
+
+						@media screen and (min-width: $screen-tablet-portrait) {
+							margin-top: 0;
+						}
+					}
+				}
+			}
 		}
 
 		&.inline {
+			display: flex;
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    align-items: center;
 
+	    @media screen and (min-width: $screen-tablet-portrait) {
+	    	flex-direction: row;
+	    }
+			@media screen and (min-width: $screen-extralarge) {}
+
+			.question {
+				&-answer {
+					width: calc(100% / 2);
+					flex-basis: calc(100% / 2);
+					padding: 8px;
+					text-transform: initial;
+					font-weight: normal;
+					position: relative;
+					border-radius: 3px;
+
+					@media screen and (min-width: $screen-tablet-portrait) {
+						width: calc(100% / 4);
+						flex-basis: calc(100% / 4);
+						padding: 8px;
+						padding: 0.5555vw;
+					}
+
+					@media screen and (min-width: $screen-extralarge) {
+						padding: 8px;
+					}
+
+
+					& + .question-answer {
+						margin-top: 20px;
+
+						@media screen and (min-width: $screen-tablet-portrait) {
+							margin-top: 0;
+						}
+					}	
+
+					&.yes {
+						border-color: $emerald-green;
+						background-color: $emerald-green;
+						color: $white;
+
+						&:before {
+							content: '';
+							display: block;
+							width: 10px;
+							height: 17px;
+							border: 2px solid $white;
+					    border-left: 0;
+					    border-top: 0;
+							transform: rotate(45deg) translateY(-15px);
+							transform-origin: center;
+							position: absolute;
+							left: 10px;
+							top: 50%;
+						}
+					}
+
+
+					&.no {
+						border-color: $dark-grey;
+
+						&:before,
+						&:after {
+							content: '';
+							display: block;
+							width: 18px;
+							height: 0;
+							border: 1px solid $dark-grey;
+							transform: rotate(45deg);
+							transform-origin: center;
+							position: absolute;
+							left: 13px;
+							top: 50%;
+						}
+
+						&:after {
+							transform: rotate(-45deg);
+						}
+					}
+				}
+
+				&-label {
+					@include calculateFluidFontSize(20, 23, 0);
+				}
+
+			}
 		}
 		
 	}
 
 	&-answer {
-		padding: 27px;
+		padding: 20px;
 		background: $white;
 		border: 2px solid $light-grey;
 		border-radius: 6px;
@@ -379,33 +495,80 @@
 		width: 100%;
 		flex-basis: 100%;
 
+		transition: all 300ms ease-in-out;
+		transform: scale(1);
+
 		@media screen and (min-width: $screen-tablet-portrait) {
-			width: auto;
-			flex-basis: initial;
+			width: calc(100% / 3);
+			flex-basis: calc(100% / 3);
 			margin: 0 15px;
+			padding: 27px;
+			padding: 1.875vw;
 
 			&:first-child {
 				margin-left: 0;
 			}
 			&:last-child {
-				margin-right: 0;
+				// margin-right: 0;
 			}
 		}
 
-		@media screen and (min-width: $screen-extralarge) {}
+		@media screen and (min-width: $screen-extralarge) {
+			padding: 27px;
+		}
+		
+		&:hover {
+			background: rgba(82, 174, 50, 0.05);
+			border: 2px solid #52AE32;
+			color: #4BA21C;
+			transform: scale(1.05);
+		}
 
 	}
 
 	&-label {
 		@include calculateFluidFontSize(32, 37, 0);
+		display: block;
+		white-space: nowrap;
 	}
 
 	&-sublabel {
 		@include calculateFluidFontSize(16, 24, 0);
+		display: block;
 	}
 
 	&-icon { // span
+		display: inline-block;
+		width: 30%;
+		height: auto;
+		background: url('../assets/icons/emojis.png') no-repeat;
+		background-size: 1000% 500%;
+		background-position: 0 0;
+		
+		@media screen and (min-width: $mobile-large) {
+			width: 10%;
+		}
 
+		@media screen and (min-width: $screen-tablet-portrait) {
+			width: 50%;
+		}
+		@media screen and (min-width: $screen-extralarge) {}
+
+		&:after {
+			content: '';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		&.sad-face {
+			background-position: 66.7% 75.2%;
+		}
+		&.neutral-face {
+			background-position: 55.77% 100%;
+		}
+		&.happy-face {
+			background-position: 11.05% 0%;
+		}
 	}
 
 	&-label { // span

@@ -1,32 +1,28 @@
 [
    {
-      "id":1,
-      "question":"How old are you?",
-      "op":"multiple",
-      "type": "text",
+      "id":3,
+      "question":"Do you have someone who you feel comfortable sharing your feelings with?",
+      "op":"add",
+      "type": "inline",
       "image": {
-         "desktop": "assets/figures/Netflix.svg",     
-         "mobile": "assets/figures/Netflix.svg",      
-         "alt": "Netflix"  
+         "desktop": "assets/figures/meetup.svg",     
+         "mobile": "assets/figures/meetup.svg",      
+         "alt": "Meetup"  
       },
       "answers":[
          {
             "icon":"",
-            "label":"18 - 24",
-            "sublabel":"years",
-            "score":1
+            "label":"Yes",
+            "sublabel":"",
+            "score":3,
+            "class": "yes"
          },
          {
             "icon":"",
-            "label":"25 - 30",
-            "sublabel":"years",
-            "score":0.9
-         },
-         {
-            "icon":"",
-            "label":"30 +",
-            "sublabel":"years",
-            "score":0.8
+            "label":"No",
+            "sublabel":"",
+            "score":0,
+            "class": "no"
          }
       ]
    }
