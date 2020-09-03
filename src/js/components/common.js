@@ -87,11 +87,14 @@ export default class Common {
             image = new Image();
 
         imgElement.classList.add('loading');
-        imgElement.src = '';
+        imgElement.classList.add('hidden');
            
         image.onload = function(){
           imgElement.src = imgSrc;
-          imgElement.classList.remove('loading');
+          setTimeout(function(){
+            imgElement.classList.remove('loading');
+            imgElement.classList.remove('hidden');
+          }, 300);
         };
 
         image.src = imgSrc;

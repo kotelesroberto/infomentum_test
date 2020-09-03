@@ -287,6 +287,10 @@ h2 {
 			opacity: 1;
 			transform: scale(1);
 
+			&.hidden {
+				visibility: hidden;
+			}
+
 			&.loading {
 				opacity: 0;
 				transform: scale(0);
