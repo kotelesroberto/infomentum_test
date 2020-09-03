@@ -13,8 +13,8 @@
 			"start": "Let's get started",
 			"youremail": "Your email address ...",
 			"image": {
-				"desktop": "assets/figures/Scooter.svg",		
-				"mobile": "assets/figures/Scooter.svg",		
+				"desktop": "assets/figures/scooter.svg",		
+				"mobile": "assets/figures/scooter.svg",		
 				"alt": "Welcome! Thank you for joining us."	
 			}
 	},

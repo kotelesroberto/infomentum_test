@@ -4,6 +4,13 @@
 
 Coded by Robert Koteles, Senior Frontend Developer, 2020
 
+
+## DEMO
+```
+http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/
+```
+
+
 ## Remarks
 1. I have decided to write this code with using Handlebars. To be honest using handlebars template for all panels could be the easiest way to make this task done but decided to store panel data in JSON files and loaded into JavaScript variable by Gulp when building the project. From that point data is handled by Vanilla JavaScript that shows my skills. Yeah, this way needed more effort but at least you can see how I work with JavaScript.
 2. As iPhone 5 has 320px wide screen that’s the minimum I have ever seen the solution is full responsive until that breakpoint, not below.
