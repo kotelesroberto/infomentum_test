@@ -21,6 +21,7 @@ http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/
 7. About error messages: I tried to create a super easy Ux for the visitor that has not too much confusig messages. For this reason a "NEXT" button is disabled until an answer is selected, not needed to use any error message here. In popup when user subscribes/unsubscribes the error message is the background colour of the input field. If unsubscription/subscription is success a little green mark is appearing on the panel.
 8. As footer of panel goes fixed on mobile it covers the area behind. For this reason a script sets the 'padding bottom' property of body when on mobile. Value of this padding is equal to height of fixed footer, it makes all content on the page visible.
 9. Performance: for better performance replacing DOM elements are minimal. Instead of fully redrawing the question panel the script changes simple classes and content of items that makes the application faster and less performance consuming.
+10. Images are lazy loaded by loadImage() function.
 
 ## Design
 

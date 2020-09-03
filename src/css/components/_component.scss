@@ -283,6 +283,14 @@ h2 {
 			width: 100%;
 			height: auto;
 			display: inline-block;
+			transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+			opacity: 1;
+			transform: scale(1);
+
+			&.loading {
+				opacity: 0;
+				transform: scale(0);
+			}
 
 			&.max-90p {
 				max-width: 90%;
@@ -307,7 +315,7 @@ h2 {
 
     &.hidden {
     	display: none;
-    	
+
     	@media screen and (min-width: $screen-tablet-portrait) {
     		display: block;
     	}

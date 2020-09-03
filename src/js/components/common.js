@@ -78,6 +78,31 @@ export default class Common {
     }
 
     //
+    // Image loader
+    // @imgElement: image element in DOM (object)
+    // @imgSrc: path of image to load (string)
+    // --------------------------------------------------------------------------
+    loadImage( imgElement, imgSrc ) {
+        let _self = this,
+            image = new Image();
+
+        imgElement.classList.add('loading');
+        imgElement.src = '';
+           
+        image.onload = function(){
+          imgElement.src = imgSrc;
+          imgElement.classList.remove('loading');
+        };
+
+        image.src = imgSrc;
+
+        // fireing load event for cached images
+        if (image.complete) {
+          image.load();
+        }
+    }
+
+    //
     // Smooth scroll to a point of the page
     // --------------------------------------------------------------------------
     scrollBodyTo( pos ) {

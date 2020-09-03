@@ -374,7 +374,8 @@ var INFOMENTUM_FORM = {
         document.getElementById('panelTitle').innerHTML = item.title;
         document.getElementById('panelContent').innerHTML = _self.templates.buildTemplate__Answers( item, _self.appData );
         
-        document.getElementById('rightImg').src = item.image.desktop;
+        // document.getElementById('rightImg').src = item.image.desktop;
+        _self.common.loadImage( document.getElementById('rightImg'), item.image.desktop );
         document.getElementById('rightImg').setAttribute('data-desktop-src', item.image.desktop);
         document.getElementById('rightImg').setAttribute('data-mobile-src', item.image.mobile);
         document.getElementById('rightImg').setAttribute('alt', item.image.alt);
@@ -443,7 +444,8 @@ var INFOMENTUM_FORM = {
         
         // image
         document.getElementById('rightImg').className = 'box-body--img max-90p';
-        document.getElementById('rightImg').src = item.image.desktop;
+        // document.getElementById('rightImg').src = item.image.desktop;
+        _self.common.loadImage( document.getElementById('rightImg'), item.image.desktop );
         document.getElementById('rightImg').setAttribute('data-desktop-src', item.image.desktop);
         document.getElementById('rightImg').setAttribute('data-mobile-src', item.image.mobile);
         document.getElementById('rightImg').setAttribute('alt', item.image.alt);
@@ -471,7 +473,8 @@ var INFOMENTUM_FORM = {
         let _self = this;
 
         // image
-        document.getElementById('rightImg').src = "{{final.image.desktop}}";
+        // document.getElementById('rightImg').src = "{{final.image.desktop}}";
+        _self.common.loadImage( document.getElementById('rightImg'), "{{final.image.desktop}}" );
         document.getElementById('rightImg').setAttribute('data-desktop-src', "{{final.image.desktop}}");
         document.getElementById('rightImg').setAttribute('data-mobile-src', "{{final.image.mobile}}");
         document.getElementById('rightImg').setAttribute('alt', "{{final.image.alt}}");
