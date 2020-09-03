@@ -67,9 +67,10 @@
 		}
 	}
 
+	&.disabled,
 	&:disabled {
-		background-color: $dark-grey;
 		pointer-events: none; 
+		opacity: 0.5;
 	}
 
 	&--round {

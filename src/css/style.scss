@@ -41,6 +41,7 @@
 		
     padding: 50px 15px 34px 15px;
     background-color: $grey;
+    min-height: 100vh; // stretch
 
     @media screen and (min-width: $screen-tablet-portrait) {
     	position: absolute;

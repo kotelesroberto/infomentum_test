@@ -65,11 +65,26 @@ export default class Common {
     // Resize window
     // ==========================================================================
     resizeWindow() {
-      // as new elements added to panel we need to resize window to activate amend height of Product Panels
-      setTimeout(function() {
-        $(window).resize();
-        log('window resized');
-      }, 100);
+      var _self = this;
+
+      window.onresize = function(event) {
+        // as new elements added to panel we need to resize window to activate amend height of Product Panels
+        setTimeout(function() {
+          log('window resized');
+          _self.setBodyPaddingBottom();
+        }, 100);
+      };
+
+    }
+
+    //
+    // Smooth scroll to a point of the page
+    // --------------------------------------------------------------------------
+    scrollBodyTo( pos ) {
+      window.scroll({
+        top: pos,
+        behavior: 'smooth'
+      });
     }
 
     // 
@@ -97,6 +112,21 @@ export default class Common {
       return cb;
     }
 
+
+// ==========================================================================
+// Set body properties
+// ==========================================================================
+
+    setBodyPaddingBottom() {
+      log('XXX - setBodyPaddingBottom');
+
+      if( !document.getElementById('panelFooter') ) return;
+
+      // set body's padding at bottom if we are on mobile. Idea: height of fixed footer panel is the value to use. It helps set all content of the page visible.
+      if( document.body.offsetWidth < 768) {
+          document.body.style.paddingBottom = document.getElementById('panelFooter').offsetHeight + 'px';
+      }
+    }
 
 // ==========================================================================
 // Email magic

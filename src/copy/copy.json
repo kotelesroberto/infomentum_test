@@ -21,6 +21,7 @@
 	"previous": "back",
 	"next": "next",
 	"unsubscribe": "unsubscribe",
+	"subscribe": "subscribe",
 	"images": {
 		"logo": {
 			"desktop": "assets/logo/infomentum.svg",		

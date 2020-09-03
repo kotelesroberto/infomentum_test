@@ -17,6 +17,7 @@ html, body {
 	font-size: 16px;
 	line-height: 1.2;
 	overscroll-behavior: none;
+	scroll-behavior: smooth;
 }
 
 /**
@@ -171,9 +172,15 @@ input[type=email] {
 
 	& + .col {
 		margin-top: 30px;
+		margin-bottom: 30px;
+
+		@media screen and (min-width: $screen-tablet-portrait) {
+			margin-bottom: 0;
+		}
+
 	}
 
-	
+
 
 	&.v-middle {
 

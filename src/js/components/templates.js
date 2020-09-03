@@ -18,8 +18,192 @@ export default class Templates {
       _this.questionData = questionData;
       _this.resultsData = resultsData;
     }
-    
 
+
+    //
+    // Modal content
+    // --------------------------------------------------------------------------
+    buildTemplate__Modal( elm ) {
+
+      let _this = this,
+          temp = '';
+
+      if( elm === 'unsubscribe' ) {
+        // unsubscribe from newsletter list
+        temp += `<div class="popup-input">
+                    <input type="email" placeholder="{{landing.youremail}}" id="email_unsubscribe" class="popup-input--input" role="textbox"/>
+                    <span id="newsletter_result"></span>
+                    <button class="button button--round button--green button--align-right" id="doUnsubscribe" role="button">
+                      {{unsubscribe}}
+                    </button>
+                  </div>`;
+
+      } else if( elm === 'subscribe' ) {
+
+        // subscribe to newsletter list
+        temp += `<div class="popup-input">
+                    <input type="email" placeholder="{{landing.youremail}}" id="email_subscribe" class="popup-input--input" role="textbox"/>
+                    <span id="newsletter_result"></span>
+                    <button class="button button--round button--green button--align-right" id="doSubscribe" role="button">
+                      {{subscribe}}
+                    </button>
+                  </div>`;
+
+      }
+
+
+      return temp;
+    }
+
+    // 
+    // Template: Frame of questions / results
+    // ==========================================================================
+    buildTemplate__Panel( appData ) {
+      let _this = this,
+          item;
+    
+      let temp = `<div class="panel-item box">
+
+                      <div class="box-header">
+                        <img class="box-header--img" src="{{images.logo.desktop}}" data-desktop-src="{{images.logo.desktop}}" data-mobile-src="{{images.logo.mobile}}" alt="{{images.logo.alt}}" aria-label="{{images.logo.alt}}" role="img"/>
+                      </div>
+
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col col-8" id="leftCol">
+
+                            <h2 class="panel-title" aria-label="" id="panelTitleContainer">
+                              <span id="panelTitleId"></span>
+                              <span id="panelTitle"></span>
+                            </h2>
+
+                            <span id="panelContent"></span>
+
+                          </div>
+                          <div class="col col-4 text-center" id="rightCol">
+                              <img class="box-body--img" src="" data-desktop-src="" data-mobile-src="" alt="" id="rightImg" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="box-footer" id="panelFooter">
+                        <div class="box-footer-inner" id="panelFooterInner">
+                        </div>
+                      </div>
+                      
+                  </div>`;
+
+      return temp;
+
+    }
+
+    //
+    // Answers of a question
+    // --------------------------------------------------------------------------
+    buildTemplate__Answers( item, appData ) {
+      let _this = this,
+          temp = '';
+
+      temp += `<div class="panel-answers ${item.type}">`;
+
+              item.answers.map( item => {
+
+                //
+                // Set active if previously was selected
+                // --------------------------------------------------------------------------
+                let selectedClass = '';
+
+                if( !appData.question_step ) {
+                  // very first question: age
+                  if( item.score == appData.results.age ) {
+                    selectedClass = 'selected';
+                  }
+                } else {
+                  // rest of questions
+                  if( item.score == appData.results.answers[ appData.question_step-1 ] ) {
+                    selectedClass = 'selected';
+                  }
+                }
+                
+                temp += `<div class="panel-answer ${ item.class ? item.class : '' } ${selectedClass}" data-score="${item.score}" aria-label="${item.label}">`;
+
+                if( item.icon ) {
+                  temp += `<span class="panel-icon ${item.icon}"></span>`;
+                }
+
+                temp += `<span class="panel-label">${item.label}</span>
+                         <span class="panel-sublabel">${item.sublabel}</span>
+               </div>`;
+
+              }); 
+
+
+      temp += `</div>`;
+
+      return temp;
+    }
+
+
+    //
+    // Footer of panel (with buttons)
+    // --------------------------------------------------------------------------
+    buildTemplate__Footer( footerType, step = 0 ) {
+      let _this = this,
+          temp = '';
+
+
+      if( footerType === 'question' ) {
+
+        //
+        // Footer if question
+        // --------------------------------------------------------------------------
+        temp += `<div class="row">
+                     <div class="col col-12">
+                      <button class="button button--round button--grey tiny ${ step === 0 ? 'disabled' : '' }" id="previous-slide" aria-label="{{previous}}">
+                          {{previous}}
+                      </button>
+                      
+                      <button class="button button--round button--green tiny" id="next-slide" aria-label="{{next}}">
+                          {{next}}
+                      </button>
+                    </div>
+                  </div>`;
+
+      } else if( footerType === 'results' ) {
+
+        //
+        // Footer if results
+        // --------------------------------------------------------------------------
+        temp += `<div class="row">
+            <div class="col col-12 h-middle">
+              <p>${_this.resultsData.areyouinterested}</p>      
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-12 h-middle">
+              <button class="button button--round button--grey tiny" id="hear-no" aria-label="${_this.resultsData.no}">
+                ${_this.resultsData.no}
+              </button>
+              
+              <button class="button button--round button--green tiny" id="hear-yes" aria-label="${_this.resultsData.yes}">
+                ${_this.resultsData.yes}
+              </button>
+            </div>
+          </div>`;
+
+      }
+
+      return temp;
+    }
+
+
+
+
+
+
+
+    /*
     // 
     // Template: question
     // ==========================================================================
@@ -163,5 +347,6 @@ export default class Templates {
       return temp;
 
     }
+    */
   
 }
