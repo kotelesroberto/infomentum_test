@@ -133,7 +133,6 @@ var INFOMENTUM_FORM = {
                 document.getElementById("next-slide").addEventListener("click", (event) => {
                   log('go to next slide');
                   
-                  console.log( _self.appData.question_step + " ___ " + (_self.questionData.length - 1) );
                   if( _self.appData.question_step < _self.questionData.length - 1 ) {
                       _self.appData.question_step++;
                       _self.loadTemplate('question');

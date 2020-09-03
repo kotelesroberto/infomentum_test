@@ -7,7 +7,7 @@ Coded by Robert Koteles, Senior Frontend Developer, 2020
 
 ## DEMO
 ```
-http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/
+http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/?debug=true
 ```
 
 
