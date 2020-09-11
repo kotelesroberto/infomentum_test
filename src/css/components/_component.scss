@@ -293,7 +293,7 @@ h2 {
 
 			&.loading {
 				opacity: 0;
-				transform: scale(0);
+				transform: scale(0.9);
 			}
 
 			&.max-90p {
@@ -326,6 +326,8 @@ h2 {
 
     }
 
+
+
 		&-inner {
 			&.separator {
 
@@ -334,6 +336,28 @@ h2 {
 				}
 
 			}
+		}
+
+		&-indicator {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 5px;
+			background-color: #EEE;
+
+			&-inner {
+				background-color: #3EC1F3;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				width: 0;
+				height: 100%;
+				transition: all 300ms ease-in-out;
+			}
+
 		}
 
     .row {

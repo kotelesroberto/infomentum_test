@@ -378,7 +378,10 @@ var INFOMENTUM_FORM = {
         document.getElementById('rightImg').setAttribute('data-desktop-src', item.image.desktop);
         document.getElementById('rightImg').setAttribute('data-mobile-src', item.image.mobile);
         document.getElementById('rightImg').setAttribute('alt', item.image.alt);
-        
+
+        // set indicator
+        document.getElementById('indicator').style.width = `calc( (100% / 7) * ${_self.appData.question_step + 1})`;
+
         //
         // Manage back / next buttons in footer
         // --------------------------------------------------------------------------
@@ -437,6 +440,8 @@ var INFOMENTUM_FORM = {
 
         // get result based on score calculated above
         item = _self.resultsData.results[ resultIndex ];
+
+        document.getElementById('indicator').remove();
 
         document.getElementById('leftCol').className = 'col col-6 v-middle';
         document.getElementById('rightCol').className = 'col col-6 text-center';

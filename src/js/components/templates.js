@@ -89,6 +89,9 @@ export default class Templates {
                       <div class="box-footer" id="panelFooter">
                         <div class="box-footer-inner" id="panelFooterInner">
                         </div>
+                        <span class="box-footer-indicator">
+                          <span class="box-footer-indicator-inner" id="indicator"></span>
+                        </span>
                       </div>
                       
                   </div>`;
