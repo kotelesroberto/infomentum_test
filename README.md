@@ -1,15 +1,22 @@
+
 # Infomentum Test
+
 
 ![Infomentum](https://www.infomentum.com/hs-fs/hubfs/CLEAN-images/logos/Infomentum_logo_with_strapline_white.png)
 
-Coded by Robert Koteles, Senior Frontend Developer, 2020
+Coded by Robert Koteles, Senior Frontend Developer, August 2020
 
 
 ## DEMO
-```
-http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/?debug=true
-```
+Click [here](http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/?debug=true) to see demo page.
 
+## Used technologies
+
+ - Vanilla JavaScript
+ - Handlebars
+ - SASS
+ - Gulp
+ - NPM
 
 ## Remarks
 1. I have decided to write this code with using Handlebars. To be honest using handlebars template for all panels could be the easiest way to make this task done but decided to store panel data in JSON files and loaded into JavaScript variable by Gulp when building the project. From that point data is handled by Vanilla JavaScript that shows my skills. Yeah, this way needed more effort but at least you can see how I work with JavaScript.
@@ -25,11 +32,7 @@ http://domainforssl.hu/portfolio/robertkoteles/solutions/infomentum/?debug=true
 
 ## Design
 
-Link:
-
-```
-https://www.figma.com/file/PYPKPwgbir0GxxxKfPDz7tke/Infomentum---Test?node-id=0%3A1
-```
+[Link to design](https://www.figma.com/file/PYPKPwgbir0GxxxKfPDz7tke/Infomentum---Test?node-id=0:1)
 
 ## GIT Hub
 
